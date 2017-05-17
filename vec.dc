@@ -1,0 +1,14 @@
+#!/usr/bin/dc
+?
+x
+z
+sz
+[Sa z0!=A]dsAx
+?
+x
+[[bad input]Pq]se
+z lz !=e
+[Sb z0!=A]dsAx
+0
+[La Lb * + lz 1 - dsz 0 !=A]dsAx
+p

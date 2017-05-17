@@ -1,0 +1,39 @@
+#!/usr/bin/dc
+# load a
+[li lj 1 - 0;a * + :a li 1 - d si 0!=L] sL
+[0;a si lLx lj 1 - d sj 0!=N] sM
+[x lMx] sN
+[z d sa sj x z la 1 - - 0:a lMx] sO
+
+? lOx
+
+# load b
+[li lj 1 - 0;b * + :b li 1 - d si 0!=L] sL
+[0;b si lLx lj 1 - d sj 0!=N] sM
+[x lMx] sN
+[z d sb sj x z lb 1 - - 0:b lMx] sO
+
+? lOx
+
+# validation check
+[[bad input]pq]sA
+0;a lb !=A
+
+# a * b
+1sk
+[li lj 1 - la * + ;a] sA								# a_i,j
+[li 1 - 0;b * lk + ;b] sB								# b_k,j
+[lAx lBx * li 1 + d si 0;a 1 + !=C +] sC
+[0 lCx lj 1 - 0;a * lk + :c] sD 				# save to c_k,j
+[1 si lDx lj 1 + d sj la 1 + !=E] sE    # for each row
+[1 sj lEx lk 1 + d sk 0;b 1 + !=F] sF
+
+lFx
+
+# print c
+[li lb lj * + ;cn 9P li 1 + d si 0;b 1 + !=A]sA
+[1 si 91P lAx 93P ]sB
+[lBx lj 1 + d sj lb >C]sC
+[0 sj lCx] sD
+
+lDx

@@ -1,0 +1,2 @@
+#!/usr/bin/dc
+[q]sq? [? z 1=q + lax]dsax p

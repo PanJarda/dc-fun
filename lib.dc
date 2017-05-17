@@ -1,0 +1,106 @@
+# err
+[[err]pq]se
+
+# print whole stack in ascii
+[P z 0 !=a] 0:a
+
+# split hex num to list
+[
+	d
+	100 %
+	r
+	100 /
+	d Z 2 <b
+] 1:a
+
+# abs
+[
+	[_1 * ]sa
+	d 0 >a
+] 2:a
+
+# min array
+[
+	[d sm]sa
+	[d lm >a sX z 0 !=b]sb
+	d sm
+	lbx
+	lm
+] 3:a
+
+# sum
+[
+	[+ z 1 !=a]sa
+	lax
+]	4:a
+
+# scalar multiplication of vectors
+# [1 2 3]
+# [3 2 1]
+# 10
+[
+	sa
+	sb
+	z s0
+	lax
+	z l0 - sn
+	[Sa z l0 <z]dszx
+	lbx
+	[Sb z l0 <z]dszx
+	0
+	[La Lb * + ln 1 - d sn 0!=z]dszx
+] 5:a
+
+# factorial
+[
+	d sm
+	[1 - d lm * sm d 1!=z]sz
+	lzx
+	lm *
+] 6:a
+
+# reverse
+[
+	z d sN sn
+	[Sa z 0!=z]dszx
+	[La Sb lN 1 - d sN 0!=z]dszx
+	[Lb ln 1 - d sn 0!=z]dszx
+] 7:a
+
+# do-loop macro n
+# macro maxval minval
+# ex.: [[ahoj]n [ ]n li p] 10 1 8;ax
+[
+	Si Sn Sm
+	[lmx li 1 + d si ln!<z] d Sz x
+	Lz s Li s Ln s Lm s
+] 8:a
+
+# [SiSnSm[lmxli1+dsiln!<z]dSzxLzs Lis Lns Lms] 8:a
+
+# for loop
+# macro init endcondition iteration
+# [[ahoj]p] [Li 1 + Si] [li 10] [0 Si]
+[
+	[LQ s q] SQ
+	[Lis Lcs Lms Lqs Lbs q] Sq
+
+	x  dx =Q Sc d x Si Sm
+	[Lc p dx=qSc LmdxSm LidxSi lbx]dSbx
+] 9:a
+# [[ahoj]p] [li 10] [Li 1 + Si] [0 Si] 9;ax
+
+##################################
+### tests
+###
+
+1 2 3 4 5 4;ax 15 !=e
+
+[1 2]
+[3 4]
+5;ax
+11 !=e
+[2 3 4]
+[4 3 2]
+5;ax
+25 !=e

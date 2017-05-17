@@ -1,0 +1,54 @@
+a num_of_rows
+[0]=num_of_cols, [1..]=values
+b num_of_rows
+[0]=num_of_cols, [1..]=values
+c
+d
+e
+f
+g
+h
+i	col_iterator
+j row_iterator
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L [li lj 1 - 0;a * + :a li 1 - d si 0!=L] # loads one row
+M	[x 0;a si lLx lj 1 - d sj 0!=M]					# cycle to load all rows
+N [z d sa sj lMx]													# macro for loading matrix A from stack
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z

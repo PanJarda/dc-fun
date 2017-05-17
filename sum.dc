@@ -1,0 +1,2 @@
+#!/usr/bin/dc
+? [+ z1!=a]sa lax p
