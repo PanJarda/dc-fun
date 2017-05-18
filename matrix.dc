@@ -3,7 +3,7 @@
 [li lj 1 - 0;a * + :a li 1 - d si 0!=L] sL
 [0;a si lLx lj 1 - d sj 0!=N] sM
 [x lMx] sN
-[z d sa sj x z la 1 - - 0:a lMx] sO
+[z d sa sj x z la 1 - - 0:a lMx] sO	
 
 ? lOx
 
@@ -14,7 +14,7 @@
 [z d sb sj x z lb 1 - - 0:b lMx] sO
 
 ? lOx
-
+	
 # validation check
 [[bad input]pq]sA
 0;a lb !=A
