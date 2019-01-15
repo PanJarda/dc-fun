@@ -1,0 +1,8 @@
+#!/usr/bin/dc
+[a=]n
+? sa
+[b=]n
+? sb
+[c=]n
+? sc
+la lb lc + + p

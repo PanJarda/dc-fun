@@ -1,0 +1,15 @@
+#!/usr/bin/dc
+13 se
+497 sm
+4 sb
+0 sa
+[
+	lb *
+	lm %
+	la 1 +
+	d sa
+	le !=x
+] sx
+1
+lxx
+p

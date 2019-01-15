@@ -1,0 +1,23 @@
+#!/usr/bin/dc
+# num2ascii
+[
+	P
+	z 0 !=z
+] sz
+
+# decompose
+[
+	d
+	100 %
+	r
+	100 /
+	d Z 2 <y
+] sy
+
+16 i																	# hex input
+?																			# encrypted message in hex
+407D5B79D59107E07E4086752D72897E8ABD	# RSA private key
+6D3DED5264BDACEA5CC076E62AE5676C844D	# modulus
+|																			# modular exponentiation (rsa decryption)
+ly x																	# decompose
+lz x																	# num2ascii

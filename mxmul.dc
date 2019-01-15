@@ -1,0 +1,100 @@
+#!/usr/bin/dc
+# DEFINE
+# do-loop
+# n macro
+# 20 [[ahoj]p]
+[
+	SA Si
+	[Lis0 LAs0 LQs0 LBs0 q]SQ
+	[li 0=Q lAx li1-si lBx]dSBx
+] 0:L
+
+# length ==
+# list
+[
+	z Sa x z la - 1 + d sa [s0] 0;Lx La
+] 1:L
+
+# nth ==
+# list n
+[
+	Sn d 1;Lx ln - Sm x Lm [s0] 0;Lx
+	Ln 1 - [r s0] 0;Lx
+] 2:L
+
+# matrix-nth-column ==
+# matrix n
+[
+	Sn				# save n for later
+	d 1;Lx Sr	# count num of rows
+	x 				# unpack
+	lr [ln 2;Lx Sa] 0;Lx	# load stack a with that vector
+	Lr [La] 0;Lx	# unload back to main stack
+	Lns0
+] 3:L
+
+# matrix validation ==
+# matrix
+[
+	[[invalid matrix]pq]S!
+	d 1;Lx Sr x d 1;Lx Sc
+	[1;Lx lc !=! lr1-dsr 0!=A]dSAx
+	Lcs0 L!s0 LAs0 Lrs0
+] 4:L
+
+
+# reverse ==
+# vector
+[
+	d 1;Lx Sn x ln [Sa] 0;Lx
+	ln [La Sb] 0;Lx
+	Ln [Lb] 0;Lx
+] 5:L
+
+# vector sum==
+# vector
+[d1;LxSnxLn1-[+]0;Lx] 6:L
+	
+# vector-matrix scalar multiplication ==
+# (returns vector in reverse order)
+# matrix vector
+[
+	Sv Sm
+	lv 1;Lx Sc
+	lc Si
+	[
+		lm li 3;Lx
+		lv 5;Lx lc [Sa] 0;Lx
+		lc [La * Sb] 0;Lx
+		0 lc [Lb +] 0;Lx
+		li 1 - d si 0!=Z
+	]dSZx
+	Lvs0 Lms0 Lcs0 Lis0 LZs0
+] 7:L
+
+# print vector==
+# n
+[
+	91P
+	1- [n 9P] 0;Lx
+	n 93P
+] 8:L
+
+# matrix scalar multiplication ==
+# A B
+[
+	[[invalid operation]pq]S!
+	Sb Sa
+	la 1 2;Lx 1;Lx lb 1;Lx !=!
+	la 1;Lx Sr
+	1 Si 91P
+	[lb la li 2;Lx 7;Lx lr 8;Lx li1+dsi lr1+!=Z]dSZx
+	93P
+	Las0 Lbs0 Lrs0 L!s0
+] 9:L
+
+? Sb Sa
+la 4;Lx
+lb 4;Lx
+la lb 9;Lx
+
